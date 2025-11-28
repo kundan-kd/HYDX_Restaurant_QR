@@ -20,22 +20,23 @@ function getKotId(id){
     $('#convert_kot_id').val(id);
 }
 
-function cancelKotDetail(){
+function cancelKotDetail(id){
     let reason = $('#kot_cancel_reason').val();
     if(reason == ''){
         toastErrorAlert('Reason is Required');
         return;
     }
     let kot_id = '';
-    $.each(kotItemList[0], function(key, kotItem){
-        kot_id = kotItem.id;
-    });
+    // $.each(kotItemList[0], function(key, kotItem){
+    //     kot_id = kotItem.id;
+    // });
     $.ajax({
         url: kotCancel,
         type: "POST",
-        data: {kot_id:kot_id,reason:reason},
+        data: {kot_id:id,reason:reason},
         success:function(response){
             if(response.success){
+                $('#kotId').val('');
                 Swal.fire({
                     text: "KOT Cancel Successfully",
                     icon: "success"
@@ -56,7 +57,7 @@ function printKot(x){
     window.open(url,'_blank');
 }
 
-function cancelKot(){
+function cancelKot(id){
     Swal.fire({
         text: "Are you sure to Cancel the KOT?",
         icon: "warning",
@@ -67,6 +68,7 @@ function cancelKot(){
       }).then((result) => {
         if (result.isConfirmed) {
             $('#kot_cancel_reason').val('');
+            $('#kotId').val(id);
             $('#kotModalCancel').modal('show');
         }
     });

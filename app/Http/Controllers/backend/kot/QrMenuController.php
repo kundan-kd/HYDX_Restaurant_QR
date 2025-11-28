@@ -18,7 +18,7 @@ class QrMenuController extends Controller
     public function index(Request $request){
         $date = date('Y-m-d');
         $kotList = [];
-        $kots = Kot::where('menu_type','QR')->where('status',1)->where('date',$date)->with(['room:id,room_number', 'table:id,number'])->get(['id','menu_id','kot_id','type','type_number','date','order_time','total_item_qty','total','sub_total','total_gst','grand_total']);
+        $kots = Kot::where('menu_type','QR')->where('status',1)->where('date',$date)->with(['table:id,number'])->get(['id','menu_id','kot_id','type','type_number','date','order_time','total_item_qty','total','sub_total','total_gst','grand_total']);
         foreach($kots as $kot){
             $number = $kot->type === 'Room'
                 ? optional($kot->room)->room_number
@@ -62,13 +62,13 @@ class QrMenuController extends Controller
                 $rndno =  $kot_chk[0];
             }
 
-            if($type == 'Room'){
-                $kot_room = ReservationRoom::where('room_alloted',$number)->where('guest_status','checkin')->get(['reservation_id','id']);
-                if(sizeof($kot_room) > 0){
-                    $rndno =  $kot_room[0]->reservation_id;
-                    $reserve_room_id_number = $kot_room[0]->id;
-                }
-            }
+            // if($type == 'Room'){
+            //     $kot_room = ReservationRoom::where('room_alloted',$number)->where('guest_status','checkin')->get(['reservation_id','id']);
+            //     if(sizeof($kot_room) > 0){
+            //         $rndno =  $kot_room[0]->reservation_id;
+            //         $reserve_room_id_number = $kot_room[0]->id;
+            //     }
+            // }
 
             $ajdust = $request->adjustment;
             if($request->adjustment == ''){

@@ -1,3 +1,37 @@
+function resetMainForm(){
+    itemRawMaterial = [];
+    itemVariation = [];
+    itemExtra = [];
+    itemAddon = [];
+    $('.item_addon_view').addClass('d-none');
+    $('.item_extra_view').addClass('d-none');
+    $('.item_variation_view').addClass('d-none');
+    $('.item_raw_material_view').addClass('d-none');
+    $('#restaurant-item-id').val('');
+    $('#restaurant-item-code').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-code').html('');
+    $('#restaurant-item-name').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-name').html('');
+    $('#restaurant-item-cost').val('');
+    $('#restaurant-item-uom').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-uom').html('');
+    $('#restaurant-item-price').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-price').html('');
+    $('#restaurant-item-offer-price').val('');
+    $('#restaurant-item-category').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-category').html('');
+    $('#restaurant-item-sub-category').val('');
+    $('#restaurant-item-label').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-label').html('');
+    $('#restaurant-item-description').val('').removeClass('is_field_invalid');
+    $('.restaurant-item-description').html('');
+    $('#restaurant-item-image').empty();
+    $('input[name="restaurant-item-category-type"]:checked').val('Veg');
+    $('input[name="restaurant-item-category-status"]:checked').val('1');
+    $('.action-title').html('Add');
+    $('.unit-details').empty();
+}
+
 $(document).ready(function () {
     $.ajaxSetup({
         headers: {
@@ -582,29 +616,6 @@ function deleteRestaurantItem(id){
     });
 }
 
-function resetMainForm(){
-    itemRawMaterial = [];
-    itemVariation = [];
-    itemExtra = [];
-    itemAddon = [];
-    $('.item_addon_view').addClass('d-none');
-    $('.item_extra_view').addClass('d-none');
-    $('.item_variation_view').addClass('d-none');
-    $('.item_raw_material_view').addClass('d-none');
-    $('#restaurant-item-code').val('');
-    $('#restaurant-item-name').val('');
-    $('#restaurant-item-uom').val('');
-    $('#restaurant-item-price').val('');
-    $('#restaurant-item-offer-price').val('');
-    $('#restaurant-item-category').val('');
-    $('#restaurant-item-sub-category').val('');
-    $('#restaurant-item-label').val('');
-    $('#restaurant-item-description').val('');
-    $('input[name="restaurant-item-category-type"]:checked').val('Veg');
-    $('input[name="restaurant-item-category-status"]:checked').val('1');
-    $('.action-title').html('Add');
-    $('.unit-details').empty();
-}
 
 function customTax(){
     if($("#restaurant-item-default-tax").prop('checked') == true){

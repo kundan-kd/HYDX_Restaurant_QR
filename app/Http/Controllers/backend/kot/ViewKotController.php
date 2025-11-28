@@ -62,32 +62,32 @@ class ViewKotController extends Controller
             
         // }
 
-        $room_types = RoomType::get();
-        foreach($room_types as $type){
-            $a = [];
-            $room_number = RoomNumber::where('status','active')->where('category_id',$type->id)->whereNull('deleted_at')->get(['room_number','id']);
-            if(sizeof($room_number) > 0){
-                foreach($room_number as $room){
-                    $chk_kot = Kot::where('type','Room')->where('type_number',$room->room_number)->where('order_status','Pending')->count();
-                    if($chk_kot == 0){
-                        $data = [
-                            'id' => $room->id,
-                            'room_number' => $room->room_number,
-                            'chk_kot' =>$chk_kot
-                        ];
-                        array_push($a,$data);
-                    }
-                }
-            }
-            if(count($a) > 0){
-                $data = [
-                    'category_id' => $type->id,
-                    'name' => $type->room_category,
-                    'rooms' => $a
-                ];
-                array_push($roomList,$data);
-            }
-        }
+        // $room_types = RoomType::get();
+        // foreach($room_types as $type){
+        //     $a = [];
+        //     $room_number = RoomNumber::where('status','active')->where('category_id',$type->id)->whereNull('deleted_at')->get(['room_number','id']);
+        //     if(sizeof($room_number) > 0){
+        //         foreach($room_number as $room){
+        //             $chk_kot = Kot::where('type','Room')->where('type_number',$room->room_number)->where('order_status','Pending')->count();
+        //             if($chk_kot == 0){
+        //                 $data = [
+        //                     'id' => $room->id,
+        //                     'room_number' => $room->room_number,
+        //                     'chk_kot' =>$chk_kot
+        //                 ];
+        //                 array_push($a,$data);
+        //             }
+        //         }
+        //     }
+        //     if(count($a) > 0){
+        //         $data = [
+        //             'category_id' => $type->id,
+        //             'name' => $type->room_category,
+        //             'rooms' => $a
+        //         ];
+        //         array_push($roomList,$data);
+        //     }
+        // }
 
         $payment_methods = PaymentMethod::where('status',1)->whereNull('deleted_at')->get();
 

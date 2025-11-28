@@ -23,7 +23,8 @@ class KotReportController extends Controller
         if($dateFrom == '' || $dateTo == ''){
             return DataTables::of(collect([]))->make(true);
         }
-        $resRoom = Kot::with(['items', 'reservation'])->whereBetween('date', [$dateFrom, $dateTo])->whereNull('menu_type')->get();
+        $resRoom = Kot::with(['items'])->whereBetween('date', [$dateFrom, $dateTo])->whereNull('menu_type')->get(); 
+        // dd($resRoom);
         return DataTables::of($resRoom)
         ->addIndexColumn()
         ->addColumn('kot_id', fn($row) => 'KOT-' . date('Ym', strtotime($row->date)) . $row->id)
@@ -32,10 +33,7 @@ class KotReportController extends Controller
         ->addColumn('order_type', fn() => 'Dining')
         ->addColumn('order_source', fn($row) => $row->type == 'Room' ? 'Room' : 'Restaurant')
         ->addColumn('table_number', fn($row) => $row->type == 'Table' ? $row->type_number : '')
-        ->addColumn('room_number', fn($row) => $row->type == 'Room' ? $row->type_number : '')
         ->addColumn('server_id', fn($row) => $row->waiterDetail->name ?? '')
-        ->addColumn('guest_name', fn($row) => $row->type == 'Room' ? optional($row->reservation)->name ?? '' : '')
-        ->addColumn('guest_contact', fn($row) => $row->type == 'Room' ? optional($row->reservation)->mobile ?? '' : '')
         ->addColumn('special', fn($row) => $row->note)
         ->addColumn('total_item', fn($row) => $row->items->sum('qty'))
         ->addColumn('total_item_cost', fn($row) => $row->total)
@@ -51,7 +49,9 @@ class KotReportController extends Controller
                 return $row->payment_type;
             }
         })
+        ->addColumn('status', fn($row) => $row->order_status)
         ->addColumn('action',function($row){
+            $visible = $row->order_status == 'Pending' ? '' : 'd-none';
             $html = '';
             $html .='<div class="dropdown icon-dropdown">
                 <button class="btn dropdown-toggle" id="userdropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="ri-more-2-fill"></i></button>
@@ -59,9 +59,9 @@ class KotReportController extends Controller
                 if($row->is_complimentary == 0 && $row->payment_type == 'Complete with Due'){
                     $html .='<a class="dropdown-item" href="javascript:;" onclick="kotRecordPayment('.$row->id.','.$row->grand_total.','.$row->total_paid.')"><i class="ri-money-rupee-circle-line text-info"></i> Record Payment</a>';
                 }
-                $html .='<a class="dropdown-item" href="javascript:;" onclick="getKotId('.$row->id.')"><i class="ri-exchange-line text-secondary"></i> To Room </a>
+                $html .='
                 <a class="dropdown-item" href="javascript:;" onclick="printKot(`'.$row->kot_id.'`)"><i class="icofont icofont-print text-primary"></i> Print</a>
-                <a class="dropdown-item" href="javascript:;" onclick="cancelKot('.$row->id.')"><i class="ri-close-fill text-danger"></i> Cancel</a>
+                <a class="dropdown-item '.$visible.'" href="javascript:;" onclick="cancelKot('.$row->id.')"><i class="ri-close-fill text-danger"></i> Cancel</a>
                 </div>
             </div>';
             return $html;

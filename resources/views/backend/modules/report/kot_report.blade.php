@@ -49,10 +49,7 @@ KOT Report
                                             <th>Order Type</th>
                                             <th>Order Source</th>
                                             <th>Table Number</th>
-                                            <th>Room Number</th>
                                             <th>Server ID</th>
-                                            <th>Guest Name</th>
-                                            <th>Guest Contact</th>
                                             <th>Special Instructions</th>
                                             <th>Total Item</th>
                                             <th>Total Item Cost</th>
@@ -62,6 +59,7 @@ KOT Report
                                             <th>Discount Applied</th>
                                             <th>Total Amount</th>
                                             <th>Payment Method</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -83,6 +81,7 @@ KOT Report
         const kotGetRoomDetail = "{{ route('available-room-kot.getRoomDetail') }}";
         const kotTableRoom = "{{ route('convert-room-detail.convertTableRoom') }}";
         const kotCollectPayment = "{{ route('collect-payment-kot.collectPayment') }}";
+        const kotCancel = "{{ route('cancel-kot-detail.cancelKot') }}";
         let table;
         $(document).ready(function() {  
         
@@ -113,10 +112,7 @@ KOT Report
                     { data: 'order_type', name: 'order_type', orderable: false, searchable: true },
                     { data: 'order_source', name: 'order_source', orderable: false, searchable: true },
                     { data: 'table_number', name: 'table_number', orderable: false, searchable: true },
-                    { data: 'room_number', name: 'room_number', orderable: false, searchable: true },
                     { data: 'server_id', name: 'server_id', orderable: false, searchable: true },
-                    { data: 'guest_name', name: 'guest_name', orderable: false, searchable: true },
-                    { data: 'guest_contact', name: 'guest_contact', orderable: false, searchable: true },
                     { data: 'special', name: 'special', orderable: false, searchable: true },
                     { data: 'total_item', name: 'total_item', orderable: false, searchable: true },
                     { data: 'total_item_cost', name: 'total_item_cost', orderable: false, searchable: true },
@@ -126,6 +122,7 @@ KOT Report
                     { data: 'discount_applied', name: 'discount_applied', orderable: false, searchable: true },
                     { data: 'total_amount', name: 'total_amount', orderable: false, searchable: true },
                     { data: 'payment_method', name: 'payment_method', orderable: false, searchable: true },
+                    { data: 'status', name: 'status', orderable: false, searchable: true },
                     { data: 'action', name: 'action'}
                 ],         
             });

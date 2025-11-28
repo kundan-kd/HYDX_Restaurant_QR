@@ -108,16 +108,6 @@
                   <span class="menu-text"> Dashboard</span>
                 </a>
               </li>
-              {{-- <li @if($path == '/reservation-new') class="active active-page-link" @endif> 
-                <a href="{{route('reservation.reservationLayout')}}" class="">
-                  
-                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-                    <path d="M115.79,8c1.86,1.17,5.24,5,5.24,7.12v24.38h158.69V15.12c0-2.13,3.38-5.95,5.24-7.12h6.74c.93.55,4.49,4.39,4.49,4.88v26.62c26.85-1.1,50.88-.13,71.87,18.36,13.08,11.53,20.95,27.56,23.94,44.64v227.25c-4.12,22.26-16.11,41.63-35.92,52.89-8.33,4.74-16.89,7.32-26.21,9.36H70.88c-33.19-5.45-59.09-31.75-62.16-65.59l.05-222.02c2.8-25.77,19.78-49,43.64-59.02,16.84-7.08,34.24-5.93,52.16-5.86V12.88c0-1.23,3.45-3.97,4.49-4.88h6.74ZM375.53,135.5v-31.12c0-20.32-25.91-45.93-46.24-47.42-85.58-1.66-171.6-1.44-257.2-.11-20.54,1.27-46.88,26.94-46.88,47.53v31.12h350.32ZM375.53,152H25.22v175.88c0,20.79,27.54,46.82,48.37,47.53l251.45.12c21.61.44,50.49-26.23,50.49-47.66v-175.88Z"/>
-                    <path d="M303.48,199.41c7.02-.66,11.18,8.35,6.93,13.72l-101.04,99.01c-46.64,48.45-83.73-24.72-118.31-49.48-7.28-7.83.84-18.7,10.29-13.31l59.42,56.71c7.96,5.94,17.01,7.29,26.06,2.99,36.64-30.82,68.73-68.25,104.11-100.44,2.81-2.56,9.18-8.9,12.54-9.21Z"/>
-                  </svg>
-                  <span class="menu-text">Reservation</span>
-                </a> 
-              </li> --}}
               <li class="more-menu @if($path == '/kot/generate-kot/0' || $path == '/kot/view-kot' || $path == '/kot/qr-menu-orders') active @endif">
                 <a href="#" class="moreMenuBtn">
                   <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 400 400">
@@ -167,221 +157,10 @@
                           </div>
                         </a>
                       </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('restaurant-breakfast-chart.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Breakfast Chart
-                          </div>
-                        </a>
-                      </li>
                     </ul>
                   </div>
                 </div>
               </li>
-              {{-- <li class="more-menu @if($path == '/kitchen/dashboard' || $path == '/kitchen/kot-monitor' || $path == '/kitchen/in-stock' || $path == '/kitchen/consumtion-report' || $path == '/kitchen/transfer-request' || $path == '/kitchen/pending-request' || $path == '/kitchen/return-request-list') active @endif">
-                <a href="#" class="moreMenuBtn">
-                  
-                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-                    <path d="M312.53,384.44c-2.14-1.89-4.98-3.56-5.05-6.81v-177.98c-31.94-3.18-57.95-29.59-61.13-61.46l.07-116.47c2.89-9.11,15.49-6.62,15.78,2.83,2.14,36.44-2.85,76.15-.03,112.2,1.83,23.38,22.21,44.13,45.33,47.07V21.67c0-2.67,5.49-5.54,8.27-5.45,2.52.08,7.54,3.17,7.54,5.45v162.15c23.12-2.88,43.5-23.73,45.33-47.07,2.84-36.29-2.24-76.19.04-112.85,1.22-8.98,10.99-10.51,15.76-3.3v120.08c-1.5,5.33-2.46,10.81-4.48,16.01-8.97,23.03-31.87,40.68-56.63,42.96v177.98c-.06,3.26-2.9,4.92-5.04,6.81h-5.75Z"/>
-                    <path d="M216.18,384.44c-9.03.62-22.61.62-31.64,0C63.82,376.09-14.55,248.05,27.77,135.27,54.07,65.2,131.25,8.81,207.95,16.24c10.9,1.06,10.48,14.7.7,15.87-10.48,1.26-21.54-.12-32.97,1.54-67.96,9.86-124.12,61.93-139.49,128.72-28.33,123.13,84.43,232.76,206.75,201,7.19-1.87,18.73-7.5,24.7-8.38,8.02-1.18,12.83,7.64,7.52,13.28-2.93,3.11-19.97,8.27-24.88,9.63-10.15,2.82-23.84,5.82-34.1,6.53Z"/>
-                    <path d="M190.87,77.61c7.13-.52,27.27-2.85,25.02,9.15-1.79,9.53-13.75,5.95-20.95,6.42-68.99,4.55-116.49,69.88-97.42,137.02,18.64,65.63,94.58,96.82,154.63,64,5.96-3.26,19.96-16.51,24.48-5.1,2.64,6.66-2.15,9.46-6.72,12.8-52.79,38.52-130.24,23.26-168.36-28.26-57.39-77.58-6.41-189.03,89.31-196.03Z"/>
-                  </svg>
-                  <span class="menu-text"> Kitchen</span>
-                </a>
-                <div class="morePanel sidebar-popover" style="display:none;">
-                  <div class="popover-header bg-white text-dark">
-                    <div class="d-flex justify-content-between border-bottom">
-                      <h4>Kitchen</h4>
-                      <div class="popover-close text-muted fw-normal"><i class="ri-close-line"></i></div>
-                    </div>
-                  </div>
-                  <div class="popover-item">
-                    <ul class="w-100">
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.dashboard')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Dashboard
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.kot-monitor')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Kot Monitor
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.inStock')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            In Stock
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.consumtionReport')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Consumtion Report
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.transferRequest')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Transfer Request
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.pendingRequest')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Pending Request
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('kitchen.returnRequestList')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Return Request List
-                          </div>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li> --}}
-              {{-- <li class="more-menu @if($path == '/store/purchase-order' || $path == '/store/purchase-list' || $path == '/store/stock-request' || $path == '/store/stock-current' || $path == '/store/transfer-report' || $path == '/store/deficiency-report') active @endif">
-                <a href="#" class="moreMenuBtn"> 
-                  
-                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-                    <path d="M362.38,4l33.62,152.06c-.31,3.66.43,7.9,0,11.46-1.31,10.92-8.77,24-16.5,31.67l.36,159.65c-2.33,19.01-17.63,34.83-36.93,36.42H57.08c-18.98-2.13-33.86-17.59-36.18-36.42l.36-159.65c-10.78-10.68-17.3-25.85-16.49-41.21L38.39,4h323.99ZM118.62,20.81H52.14l-30.48,137.24c-.02,35.75,33.07,46.08,63.64,40.72,15.36-2.69,33.32-19.08,33.32-35.45v-12.61h16.81v12.61c0,16.42,17.95,32.76,33.32,35.45,12.33,2.16,51.69,2.19,63.91-.11,15.07-2.83,32.67-19.31,32.67-35.34v-12.61h16.81v12.61c0,16.43,17.96,32.76,33.32,35.45,30.94,5.41,64.06-5.2,63.53-41.37l-30.37-136.59h-66.48v81h-16.81V20.81h-129.9v81h-16.81V20.81ZM37.62,211.08v147.1c0,8.45,12.36,20.16,21.02,20.24l281.99.04c9.21.81,22.51-11.43,22.51-20.28v-147.1c-26.81,9.25-62.22,9.17-82.55-13.35-1.51-1.09-5.92-9.17-7.23-8.81-.5.14-4.93,7.09-6.11,8.42-10.25,11.46-25.16,18.1-40.48,19.13-16.43,1.1-53.36,1.66-68.25-2.87-7.77-2.37-14.63-6.92-20.81-12.05l-11.06-12.62c-17.78,30.48-58.77,32.87-89.03,22.16Z"/>
-                  </svg>
-                  <span class="menu-text"> Store</span>
-                </a>
-                <div class="morePanel sidebar-popover" style="display:none;">
-                  <div class="popover-header bg-white text-dark">
-                    <div class="d-flex justify-content-between border-bottom">
-                      <h4>Store</h4>
-                      <div class="popover-close text-muted fw-normal"><i class="ri-close-line"></i></div>
-                    </div>
-                  </div>
-                  <div class="popover-item">
-                    <ul class="w-100">
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.purchaseOrder')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Purchase Order
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.purchaseList')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Purchase List
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.stockRequest')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Item Requests
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.stockCurrent')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Current Stock
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.transferReport')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Transfer Report
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.deficiencyReport')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Deficiency Report
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('store.wasteDisposeReport')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Expired Item Report
-                          </div>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li> --}}
-              {{-- <li class="more-menu @if($path == '/banquet/dashboard' || $path == '/banquet/booking' || $path == '/banquet/hall') active @endif">
-                <a href="#" class="moreMenuBtn">
-                  
-                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-                    <path d="M208.25,8v32.25c74.59,2.5,137.05,68.65,135.75,143.25h32.25v16.5h-32.25v111.75h32.25v16.5H23.75v-16.5h32.25v-111.75H23.75v-16.5h32.25c-1.3-74.62,61.16-140.71,135.75-143.25V8s16.5,0,16.5,0ZM327.5,183.5c.71-53.15-34.91-102.19-84.56-119.81-39.9-14.16-84.69-7.64-118.6,17.52-32.04,23.76-52.32,61.95-51.83,102.29h255ZM135.5,200h-63v111.75h63v-111.75ZM248,200h-96v111.75h96v-111.75ZM327.5,200h-63v111.75h63v-111.75Z"/>
-                    <rect x="8" y="375.5" width="384" height="16.5"/>
-                  </svg>
-                  <span class="menu-text"> Banquet</span>
-                </a>
-                <div class="morePanel sidebar-popover" style="display:none;">
-                  <div class="popover-header bg-white text-dark">
-                    <div class="d-flex justify-content-between border-bottom">
-                      <h4>Banquet</h4>
-                      <div class="popover-close text-muted fw-normal"><i class="ri-close-line"></i></div>
-                    </div>
-                  </div>
-                  <div class="popover-item">
-                    <ul class="w-100">
-                      <li class="py-1 px-1">
-                        <a href="{{route('dashboard.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Dashboard
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('booking.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Booking
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('hall.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Hall
-                          </div>
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                </div>
-              </li> --}}
               <li class="more-menu @if($path == '/report/reservationReportView' || $path == '/report/kotReport' || $path == '/report/hall-utilization-report' || $path == '/report/hall-revenue-comparison' || $path == '/report/comprehensive-booking-report' || $path == '/report/comprehensive-corporate-report' || $path == '/report/event-type-analysis' || $path == '/report/monthly-revenue-breakdown' || $path == '/report/outstanding-payments-report') active @endif">
                 <a href="#" class="moreMenuBtn">
                   <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
@@ -401,30 +180,6 @@
                   </div>
                   <div class="popover-item">
                     <ul class="w-100">
-                      {{-- <li class="py-1 px-1">
-                        <a href="{{route('roomReport.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Rooms
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('guestHistory.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Guest History
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('reservationReport.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Reservation
-                          </div>
-                        </a>
-                      </li> --}}
                       <li class="py-1 px-1">
                         <a href="{{route('kotReport.index')}}">
                           <div class="d-flex align-items-center">
@@ -433,126 +188,10 @@
                           </div>
                         </a>
                       </li>
-                      {{-- <li class="py-1 px-1">
-                        <a href="{{route('hallUtilization.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Hall Utilization
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('hallRevenue.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Hall Revenue
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('comprehensiveBooking.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            <span class="text-start">Comprehensive Hall Booking</span>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('comprehensiveCorporate.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            <span class="text-start">Comprehensive Corporate</span>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('eventType.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            <span class="text-start">Event Type Analysis</span>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('monthlyRevenue.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            <span class="text-start">Monthly Revenue Breakdown</span>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="py-1 px-1">
-                        <a href="{{route('outstandingPayments.index')}}">
-                          <div class="d-flex align-items-center">
-                            <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                            Outstanding Payments
-                          </div>
-                        </a>
-                      </li> --}}
-                      
                     </ul>
                   </div>
                 </div>
               </li>
-              {{-- <li class="@if($path == '/nightaudit/dashboard') active @endif"> 
-                <a href="{{route('auditReport.index')}}" class="">
-                  
-                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-                    <path d="M11.72,389.02l-.03-342.32C13.58,28.31,28.35,13.57,46.7,11.69l245.41.03c15.1.58,34.27,19.35,34.27,34.26v96.17l-16.24-8.6-.05-85.28c-1.53-10.9-10.49-19.8-21.63-20.38l-241,.03c-7.06-.23-19.52,11.53-19.52,18.06v326.82h164.7c.52,0,7.57,4.08,9.24,4.77,10.96,4.49,22.56,8.2,34.35,9.87,4.7.67,9.75.42,14.26,1.58H11.72Z"/>
-                    <path d="M389.02,377.23v.74l-11.05,11.05h-.74l-55.05-55.19c-1.49-.39-5.69,3.81-7.36,4.94-73.32,49.75-167.39-4.41-161.64-92.38,3.12-47.82,45.41-90.1,93.22-93.22,87.97-5.74,142.13,88.32,92.38,161.64-1.13,1.67-5.34,5.86-4.94,7.36l55.19,55.05ZM245.91,169.64c-58.69,5.19-93.64,70.8-68.04,123.6,29.97,61.8,118.58,64.75,152.32,4.9,34.98-62.05-14.01-134.71-84.28-128.5Z"/>
-                    <rect x="153.21" y="89.83" width="110.54" height="16.21"/>
-                    <rect x="74.36" y="89.83" width="47.9" height="16.21"/>
-                    <rect x="74.36" y="168.68" width="47.9" height="16.21"/>
-                    <rect x="74.36" y="247.53" width="47.9" height="16.21"/>
-                    <path d="M301.06,224.74c1.39-.25,10.11,9.9,12.04,11.37l-57.51,55.96c-12.8,7.1-20.05.53-29.08-7.67-8.02-7.29-15.31-15.8-23.14-23.33-.17-.94,10.33-11.43,11.27-11.27l28.8,27.99,2.83.59,54.79-53.64Z"/>
-                  </svg>
-                  <span class="menu-text"> Night Audit</span>
-                </a> 
-              </li> --}}
-              {{-- <li class="more-menu"> 
-                <a href="#" class="moreMenuBtn">
-                 <i class="ri-more-fill"></i>
-                  <span class="menu-text">More</span>
-                </a> 
-                <div  class="morePanel sidebar-popover" style="display:none;">
-                  <div class="popover-header bg-white text-dark">
-                    <div class="d-flex justify-content-between border-bottom">
-                      <h4>More</h4>
-                      <div class="popover-close text-muted fw-normal"><i class="ri-close-line"></i></div>
-                    </div>
-                  </div>
-                  <div class="popover-item">
-                    <ul class="w-100">
-                      <li class="py-1 px-1">
-                        <div class="d-flex align-items-center">
-                          <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                          Reports
-                        </div>
-                      </li>
-                      <li class="py-1 px-1">
-                        <div class="d-flex align-items-center">
-                          <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                          Reports
-                        </div>
-                      </li>
-                      <li class="py-1 px-1">
-                        <div class="d-flex align-items-center">
-                          <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                          Reports
-                        </div>
-                      </li>
-                      <li class="py-1 px-1">
-                        <div class="d-flex align-items-center">
-                          <span class="me-2 icon"><i class="ri-file-chart-line"></i></span> 
-                          Reports
-                        </div>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                  
-                </div>
-              </li> --}}
               </div>
               <div class="last-item ">
                 <li class="@if($path == '/roomnum' || $path == '/setting/tariff' || $path == '/roomtype' || $path == '/restaurant/restaurant-table' || $path == '/restaurant/restaurant-menu' || $path == '/restaurant/restaurant-raw-material' || $path == '/restaurant/restaurant-item-attribute' || $path == '/restaurant/restaurant-item-category' || $path == '/tax/tax-slab' || $path == '/setting/payment-method' || $path == '/setting/company' || $path == '/setting/waiter' || $path == '/setting/event' || $path == '/setting/feature' || $path == '/setting/accessories' || $path == '/setting/reason-closer') active @endif"> <a href="{{route('restaurant-table.index')}}" class="">
@@ -596,9 +235,6 @@
               </div>
               <div class="nav-right col-auto pull-right right-header p-0 ms-auto">
                 <ul class="nav-menus">
-                  {{-- <li class="clear-cache-btn">
-                    <i class="ri-refresh-line clearCacheBtn text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Clear Cache"></i>
-                  </li> --}}
                   <li>
                     <div class="mode">
                       <svg>
@@ -613,7 +249,6 @@
                       </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
-                      {{-- <li><a href="{{route('profile.index')}}"><i class="ri-user-line mx-2"></i><span>Profile</span></a></li> --}}
                       <li><a href="{{route('setting.index')}}"><i class="ri-settings-2-line mx-2"></i><span>Setting</span></a></li>
                       <li><a href="{{route('logout')}}"><i class="ri-logout-circle-r-line mx-2"></i><span>Log Out</span></a></li>
                     </ul>

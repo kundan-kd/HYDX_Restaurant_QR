@@ -242,7 +242,7 @@
         </div>
         <!--end Form  Step 1 -->
         <!--start Form  Step 2 -->
-        <div class="rawmatrial-section">                                               
+        <div class="rawmatrial-section d-none">                                               
             <div class="d-none d-sm-block mb-3 mt-4 "> 
                 <h5 class="text-uppercase">Raw Material</h5>
             </div>

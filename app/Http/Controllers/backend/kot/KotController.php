@@ -101,13 +101,13 @@ class KotController extends Controller
             $rndno =  $kot_chk[0];
         }
 
-        if($type == 'Room'){
-            $kot_room = ReservationRoom::where('room_alloted',$number)->whereNotNull('checkedin_at')->whereNull('checkedout_at')->get(['reservation_id','id']);
-            if(sizeof($kot_room) > 0){
-                $rndno =  $kot_room[0]->reservation_id;
-                $reserve_room_id_number = $kot_room[0]->id;
-            }
-        }
+        // if($type == 'Room'){
+        //     $kot_room = ReservationRoom::where('room_alloted',$number)->whereNotNull('checkedin_at')->whereNull('checkedout_at')->get(['reservation_id','id']);
+        //     if(sizeof($kot_room) > 0){
+        //         $rndno =  $kot_room[0]->reservation_id;
+        //         $reserve_room_id_number = $kot_room[0]->id;
+        //     }
+        // }
 
         $item_insert = new Kot();
         $ajdust = $request->adjustment;
@@ -189,32 +189,32 @@ class KotController extends Controller
         }
     }
 
-    public function getRoomDetail(){
-        $roomList = [];
-        $reservationRoom = ReservationRoom::where('status','Alloted')->where('room_alloted','!=','NA')->get(['room_alloted_id']);
-        foreach($reservationRoom as $room){
-            $roomList[] = [
-                'id' => $room->room_alloted_id,
-                'number' =>$room->roomData->room_number
-            ];
-        }
-        return response()->json(['success' => 'Room Fetch successfully','roomList' => $roomList], 200);
-    }
+    // public function getRoomDetail(){
+    //     $roomList = [];
+    //     $reservationRoom = ReservationRoom::where('status','Alloted')->where('room_alloted','!=','NA')->get(['room_alloted_id']);
+    //     foreach($reservationRoom as $room){
+    //         $roomList[] = [
+    //             'id' => $room->room_alloted_id,
+    //             'number' =>$room->roomData->room_number
+    //         ];
+    //     }
+    //     return response()->json(['success' => 'Room Fetch successfully','roomList' => $roomList], 200);
+    // }
 
-    public function convertTableRoom(Request $request){
-        $reservationRoom = ReservationRoom::where('status','Alloted')->where('room_alloted',$request->room)->pluck('reservation_id');
-        $update = Kot::where('id',$request->id)->update([
-            'reserve_room_id' => $request->room,
-            'kot_id' => $reservationRoom[0],
-            'type' => 'Room',
-            'type_number' => $request->number
-        ]);
-        if($update){
-            return response()->json(['success' => 'Table Kot Converted To Room Kot successfully'], 200);
-        } else {
-            return response()->json(['error' => 'Something Went Wrong'], 400);
-        }
-    }
+    // public function convertTableRoom(Request $request){
+    //     $reservationRoom = ReservationRoom::where('status','Alloted')->where('room_alloted',$request->room)->pluck('reservation_id');
+    //     $update = Kot::where('id',$request->id)->update([
+    //         'reserve_room_id' => $request->room,
+    //         'kot_id' => $reservationRoom[0],
+    //         'type' => 'Room',
+    //         'type_number' => $request->number
+    //     ]);
+    //     if($update){
+    //         return response()->json(['success' => 'Table Kot Converted To Room Kot successfully'], 200);
+    //     } else {
+    //         return response()->json(['error' => 'Something Went Wrong'], 400);
+    //     }
+    // }
 
     public function collectPayment(Request $request){
        

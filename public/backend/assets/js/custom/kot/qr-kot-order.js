@@ -3,12 +3,14 @@ let orderNote = '';
 let tableCustomer = [];
 
 function getKotDetail(id,kot_id){
+    console.log('getKotDetail');
     kotItemList = [];
     $.ajax({
         url: QrkotDetail,
         data:{id:id,kot_id:kot_id},
         type: "POST",
         success: function(response) {
+            console.log('response- ');
             console.log(response);
             $('.qr_menu_generate_kot_id').html(id);
             $('.generated-kot-item-list').html('');

@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-sm-12">
+                        <div class="col-lg-6 col-sm-12 d-none">
                             <div class="card">
                                 <div class="card-header">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
+                        <div class="col-lg-12 col-sm-12">
                             <div class="card">
                                 <div class="card-header">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -354,7 +354,7 @@
 <script>
     const kotGetRoomDetail = "{{ route('available-room-kot.getRoomDetail') }}";
     const kotTableRoom = "{{ route('convert-room-detail.convertTableRoom') }}";
-    const kotCancel = "{{ route('cancel-kot-detail.cancelKot') }}";
+    // const kotCancel = "{{ route('cancel-kot-detail.cancelKot') }}";
 
     document.addEventListener("DOMContentLoaded", function () {
         const checkbox = document.querySelector("#record-payment");

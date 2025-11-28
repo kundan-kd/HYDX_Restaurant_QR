@@ -9,13 +9,14 @@
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <label class="form-label">Reason</label>
+                        <input type="hidden" id="kotId">
                         <textarea class="form-control form-control-sm" id="kot_cancel_reason" rows="4"></textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer justify-content-between flex-nowrap">
                 <button type="button" class="btn btn-outline-danger w-50" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary w-50" onclick="cancelKotDetail()">Submit</button>
+                <button type="button" class="btn btn-primary w-50" onclick="cancelKotDetail(document.getElementById('kotId').value)">Submit</button>
             </div>
         </div>
     </div>
